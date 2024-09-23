@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="MyService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="tbl" EntityType="MyService.tbl"/>
+                <EntitySet Name="tbl2" EntityType="MyService.tbl2"/>
+                <Singleton Name="ExcelUpload" Type="MyService.ExcelUpload"/>
+                <EntitySet Name="Students" EntityType="MyService.Students"/>
+                <EntitySet Name="kpilist" EntityType="MyService.kpilist"/>
+            </EntityContainer>
+            <EntityType Name="tbl">
+                <Property Name="ID" Type="Edm.Int32"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Address" Type="Edm.String" MaxLength="40"/>
+            </EntityType>
+            <EntityType Name="tbl2">
+                <Property Name="ID" Type="Edm.Int32"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="30"/>
+                <Property Name="Address" Type="Edm.String" MaxLength="40"/>
+            </EntityType>
+            <EntityType Name="ExcelUpload">
+                <Property Name="excel" Type="Edm.Stream"/>
+            </EntityType>
+            <EntityType Name="Students">
+                <Property Name="Name" Type="Edm.String" MaxLength="34"/>
+                <Property Name="Address" Type="Edm.String" MaxLength="40"/>
+            </EntityType>
+            <EntityType Name="kpilist">
+                <Property Name="first_name" Type="Edm.String" MaxLength="50"/>
+                <Property Name="last_name" Type="Edm.String" MaxLength="60"/>
+                <Property Name="email" Type="Edm.String" MaxLength="70"/>
+                <Property Name="gender" Type="Edm.String" MaxLength="20"/>
+            </EntityType>
+            <Annotations Target="MyService.ExcelUpload/excel">
+                <Annotation Term="Core.MediaType" String="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

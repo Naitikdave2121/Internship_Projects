@@ -1,0 +1,85 @@
+<mvc:View controllerName="project2.project2.controller.View1" xmlns:viz="sap.viz.ui5.controls" xmlns:vizData="sap.viz.ui5.data"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:core="sap.ui.core" xmlns:unified="sap.ui.unified" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:suite="sap.suite.ui.commons">
+    <Page id="page" title="Company Dashboard">
+        <content>
+            <l:Splitter id="splitter" orientation="Horizontal" height="100%">
+                <!-- Left side (input fields) -->
+                <l:VerticalLayout width="30%" class="sapUiSmallMarginBegin sapUiSmallMarginTop sapUiSmallMarginBottom">
+                    <l:Grid containerQuery="true">
+                        <!-- Dashboard Name -->
+                        <Label text="Dashboard Name" class="sapUiTinyMargin" fontWeight="Bold"/>
+                        <ComboBox id="dashname" items="{path: 'sdata>/dashboardNames'}" width="100%">
+                            <core:Item key="{sdata>}" text="{sdata>}" />
+                        </ComboBox>
+                        
+                        <!-- Chart Type -->
+                        <Label text="Chart Type" class="sapUiTinyMarginTop" fontWeight="Bold"/>
+                        <ComboBox id="chartTypeComboBox" width="100%">
+                            <core:Item key="line" text="Line Chart" />
+                            <core:Item key="column" text="Column Chart" />
+                            <core:Item key="bar" text="Bar Chart" />
+                            <core:Item key="donut" text="Donut Chart" />
+                            <core:Item key="Scatter" text="Scatter Chart" />
+                        </ComboBox>
+                        <!-- Chart Name -->
+                        <Label text="Chart Name" class="sapUiTinyMarginTop" fontWeight="Bold"/>
+                        <Input id="chartNameInput" width="100%" change="handlechange1" />
+
+                        <!-- Measures -->
+                        <Label text="Measures" class="sapUiTinyMarginTop" fontWeight="Bold"/>
+                        <ComboBox id="measuresComboBox" width="100%">
+                            <core:Item key="Salary" text="Salary" />
+                            <core:Item key="Name" text="Name" />
+                            <core:Item key="Address" text="Address" />
+                        </ComboBox>
+
+                        <!-- Dimensions -->
+                        <Label text="Dimensions" class="sapUiTinyMarginTop" fontWeight="Bold"/>
+                        <ComboBox id="dimensionsComboBox" width="100%">
+                            <core:Item key="Salary" text="Salary" />
+                            <core:Item key="Name" text="Name" />
+                            <core:Item key="Address" text="Address" />
+                        </ComboBox>
+
+                        <!-- Table Name -->
+                        <Label text="Table Name" class="sapUiTinyMarginTop" fontWeight="Bold"/>
+                        <Input id="tableNameInput" width="100%" />
+
+                        <!-- Background Color -->
+                        <Label text="Background Color" class="sapUiTinyMarginTop" fontWeight="Bold"/>
+                        <Input id="bgColorInput" width="100%" change="onColorChange" />
+                        <Button text="Pick Color" press="onOpenColorPicker" class="sapUiTinyMarginTop" fontWeight="Bold"/>
+
+                        <!-- Save and Dashboard buttons -->
+                        <HBox class="sapUiTinyMarginTop">
+                            <Button text="Save" type="Emphasized" press="onSave" style="background-color: blue;" fontWeight="Bold"/>
+                            <Button text="Dashboard" type="Emphasized" press="onPublish" class="sapUiSmallMarginBegin" fontWeight="Bold"/>
+                        </HBox>
+                    </l:Grid>
+                </l:VerticalLayout>
+                
+                <!-- Center (Chart Container) -->
+                <VBox width="70%" class="sapUiSmallMarginBegin">
+                    <suite:ChartContainer
+                        id="idChartContainer"
+                        showFullScreen="true"
+                        class="sapUiSmallMargin customPadding"
+                        showPersonalization="true"
+                        autoAdjustHeight="false"
+                        width="700px"
+                        height="100%"
+                        title="Dashboard1">
+                        <suite:content>
+                            <suite:ChartContainerContent >
+                                <suite:content>
+                                    <VBox id="chartBlock" width="100%"></VBox>
+                                </suite:content>
+                            </suite:ChartContainerContent>
+                        </suite:content>
+                    </suite:ChartContainer>
+                </VBox>
+            </l:Splitter>
+        </content>
+    </Page>
+</mvc:View>

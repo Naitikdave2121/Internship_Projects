@@ -1,0 +1,8 @@
+
+POST http://localhost:4004/odata/v4/my/tbl2
+Content-Type: application/json
+
+{
+    "Name":"ajay",
+    "Address": "Sidsar road"
+}

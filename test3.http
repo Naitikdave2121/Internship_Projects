@@ -1,0 +1,1 @@
+ DELETE "http://localhost:4004/odata/v4/my/tbl(1)"

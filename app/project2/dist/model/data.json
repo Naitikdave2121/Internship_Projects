@@ -1,0 +1,32 @@
+{
+"Root": [
+  {
+    "Dashboard_Name": "dash2",
+    "Chart_Name": "ch",
+    "chart_Type": "line",
+    "Measures": "Salary",
+    "Dimensions": "Name",
+    "TableName": "",
+    "data1": {
+      "Name": "naitik",
+      "Address": "sidsar",
+      "mobileno": "21000",
+      "Salary":24000
+    }
+  },
+  {
+    "Dashboard_Name": "DASH5",
+    "Chart_Name": "ch2",
+    "chart_Type": "column",
+    "Measures": "Salary",
+    "Dimensions": "Name",
+    "TableName": "DB_EMPINFO",
+    "data1": {
+      "Name": "raj",
+      "Address": "kaliyabid",
+      "mobileno": "24000",
+      "Salary":21000
+    }
+  }
+]
+}

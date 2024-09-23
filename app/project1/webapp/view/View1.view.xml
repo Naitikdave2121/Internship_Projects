@@ -1,0 +1,61 @@
+<mvc:View controllerName="naitik.project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified"
+    displayBlock="true">
+
+    <Page id="page" title="{i18n>title}" class="sapUiContentPadding">
+        <content>
+            <VBox alignItems="Center" justifyContent="Center" width="100%">
+                <u:FileUploader
+                    id="fileUp"
+                    name="myFileUpload"
+                    tooltip="Upload (.xlsx)"
+                    uploadComplete="handleUploadComplete"
+                    fileType="xlsx"
+                    placeholder="Choose a file for Upload (.xlsx)"
+                    sendXHR="true"
+                    useMultipart="false"/>
+                
+                <Button id="ok"
+                    text="OK"
+                    press=".onOk"
+                    type="Emphasized"
+                    enabled="true" />
+
+                <VBox class="sapUiSmallMarginTop">
+                    <Input id="name" placeholder="Name"/>
+                    <Input id="add" placeholder="Address"/>
+                    <Button text="Submit" press=".onSubmit" class="sapUiSmallMarginTop"/>
+                </VBox>
+
+                <HBox justifyContent="SpaceAround" class="sapUiMediumMarginTop">
+                    <Button text="Create" press=".oncreate"/>
+                </HBox>
+            </VBox>
+
+            <Table id="rawTable" items="{mainModel>/tbl}" class="sapUiSmallMarginTop">
+                <columns>
+                    <Column>
+                        <Text text="ID"/>
+                    </Column>
+                    <Column>
+                        <Text text="Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="Address"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{mainModel>ID}"/>
+                            <Text text="{mainModel>Name}"/>
+                            <Text text="{mainModel>Address}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

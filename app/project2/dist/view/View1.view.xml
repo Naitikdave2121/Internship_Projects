@@ -1,0 +1,64 @@
+<mvc:View controllerName="project2.project2.controller.View1" xmlns:viz="sap.viz.ui5.controls" xmlns:vizData="sap.viz.ui5.data"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:core="sap.ui.core" xmlns:m="sap.m" xmlns:unified="sap.ui.unified" xmlns:html="http://www.w3.org/1999/xhtml">
+    <Page id="page" title="Company Dashboard">
+        <content>
+            <l:Splitter id="splitter" orientation="Horizontal" height="100%">
+                <!-- Left side (input fields) -->
+                <VBox width="30%" class="sapUiSmallMarginBegin">
+                    <!-- Dashboard Name -->
+                    <Label text="Dashboard Name" />
+                    <ComboBox id="dashname" items="{studentsData>/}" width="200px">
+                        <core:Item key="{studentsData>Dashboard_Name}" text="{studentsData>Dashboard_Name}" />
+                    </ComboBox>
+
+                    <!-- Chart Type -->
+                    <Label text="Chart Type" />
+                    <ComboBox id="chartTypeComboBox" width="200px">
+                        <core:Item key="line" text="Line Chart" />
+                        <core:Item key="column" text="Column Chart" />
+                        <core:Item key="bar" text="Bar Chart" />
+                        <core:Item key="donut" text="Donut Chart" />
+                    </ComboBox> 
+
+                    <!-- Chart Name -->
+                    <Label text="Chart Name" />
+                    <Input id="chartNameInput" width="200px" change="handlechange1"/>
+
+                    <!-- Measures -->
+                    <Label text="Measures" />
+                    <ComboBox id="measuresComboBox" width="200px">
+                        <core:Item key="Salary" text="Salary" />
+                        <core:Item key="Name" text="Name" />
+                        <core:Item key="Address" text="Address" />
+                    </ComboBox>
+
+                    <!-- Dimensions -->
+                    <Label text="Dimensions" />
+                    <ComboBox id="dimensionsComboBox" width="200px">
+                        <core:Item key="Salary" text="Salary" />
+                        <core:Item key="Name" text="Name" />
+                        <core:Item key="Address" text="Address" />
+                    </ComboBox>
+
+                    <!-- Table Name -->
+                    <Label text="Table Name" />
+                    <Input id="tableNameInput" width="200px" />
+
+                    <!-- Background Color -->
+                    <Label text="Background Color" />
+                    <Input id="bgColorInput" enabled="false" width="200px" change="onChangeBackgroundColor"/>
+                    <Button text="Pick Color" press="onOpenColorPicker" />
+
+                    <!-- Save and Dashboard buttons -->
+                    <HBox class="sapUiSmallMargin">
+                        <Button text="Save" type="Emphasized" press="onSave" style="background-color: blue; margin-right: 8px;" />
+                        <Button text="Dashboard" type="Emphasized" press="onPublish" class="sapUiSmallMarginBegin" />
+                    </HBox>
+                </VBox>
+                <VBox id="chartBlock" class="sapUiSmallMarginBegin">
+                    <!-- Chart will be added dynamically here -->
+                </VBox>
+            </l:Splitter>
+        </content>
+    </Page>
+</mvc:View>
